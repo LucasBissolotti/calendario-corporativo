@@ -37,9 +37,8 @@ Este documento consolida arquitetura, módulos, fluxos principais, políticas de
   - Usuário autenticado: acesso ao calendário e suas funcionalidades
   - Admin: privilégios adicionais (dashboard, limpeza de backlog, etc.)
 
-### 3.1 Cadastro com verificação (2FA por e-mail) e domínio interno
+### 3.1 Cadastro com verificação (2FA por e-mail)
 
-- Domínio interno: durante o cadastro, apenas e-mails do domínio configurado em `ALLOWED_EMAIL_DOMAIN` são aceitos. A validação é silenciosa: usuários com domínios externos verão o fluxo natural de solicitação de código, porém nenhuma conta será criada sem um e-mail interno válido.
 - Fluxo de 2 etapas (registro):
   1) Usuário informa nome, e-mail e senha em `registro.php`.
   2) O sistema envia um código de 6 dígitos por e-mail (PHPMailer ou `mail()`), válido por 15 minutos. O código é persistido em `verificacoes` com hash e limite de tentativas.
@@ -52,9 +51,9 @@ Este documento consolida arquitetura, módulos, fluxos principais, políticas de
 - `.env`: arquivo de variáveis de ambiente (não versionado)
   - `DB_PATH`: caminho para o SQLite
   - `DB_BACKUP_DIR`: diretório para backups
-  - `SMTP_HOST`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_PORT`, `SMTP_SECURE`: configurações de e-mail
+  - `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_PORT`: configurações de e-mail
+  - `SMTP_FROM_EMAIL`, `SMTP_FROM_NAME`: remetente dos e-mails
   - `SITE_TITLE`: título do site
-  - `ALLOWED_EMAIL_DOMAIN`: domínio permitido para cadastro
 - `includes/config.php`:
   - `UPLOAD_DIR`: pasta de uploads (já protegida contra acesso direto).
   - `ALLOW_FILE_DOWNLOADS`: `false` por padrão. Com `false`, o sistema não entrega anexos via HTTP e remove links de visualização.
@@ -65,9 +64,10 @@ Este documento consolida arquitetura, módulos, fluxos principais, políticas de
 - SQLite: schema criado automaticamente em `includes/database.php` se o arquivo não existir.
 - Tables principais:
   - `usuarios` (id, nome, email, senha hash, is_admin, avatar)
-  - `tarefas` (campos de data/hora, dia_inteiro, dias_uteis, participantes, etc.)
+  - `tarefas` (campos de data/hora, dia_inteiro, dias_uteis, participantes, checklist, etc.)
   - `anexos` (tarefa_id, nome_arquivo, tipo_arquivo, caminho)
-  - `categorias`
+  - `categorias` (id, nome, cor) — criadas pelo admin no painel
+  - `checklists` (id, nome) — itens de checklist criados pelo admin
   - `verificacoes` (email, nome, senha_hash, codigo_hash, expires_at, attempts, created_at) — pendências de cadastro para 2FA.
 
 ## 6. API (gateway `api.php`)
@@ -115,8 +115,8 @@ Observações importantes:
 
 ## 10. Manutenção e operações
 
-- Categorias: ajustar cores/nomes em `includes/categoria.php` e/ou `CATEGORIAS` em `includes/config.php` se usado.
-- E-mail: configurar `phpmailer_config.php` (SMTP, credenciais) quando necessário, ou via variáveis de ambiente no `.env`.
+- Categorias e Checklists: gerenciados pelo admin no painel administrativo (Administração > Categorias / Checklists).
+- E-mail: configurar via variáveis de ambiente no `.env` (SMTP_HOST, SMTP_USER, SMTP_PASSWORD, etc.).
 - Limpeza de backlog: via `admin/dashboard.php` (apenas admin), com CSRF e confirmação.
 - Avatares: armazenados em `uploads/avatares/` e servidos ao navegador; outras pastas de uploads continuam bloqueadas.
 

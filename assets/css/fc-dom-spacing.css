@@ -1,0 +1,5 @@
+/* Espaçamento à esquerda para eventos no domingo no FullCalendar */
+.fc-day .fc-event {
+    margin-left: 5px !important;
+    margin-right: 3px !important;
+}

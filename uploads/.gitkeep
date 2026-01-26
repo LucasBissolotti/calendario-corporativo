@@ -1,0 +1,3 @@
+# Pasta de uploads
+# Este diretório armazena arquivos enviados pelos usuários.
+# Os arquivos são ignorados pelo Git.

@@ -1,0 +1,394 @@
+/* Estilos personalizados para o Calendário Corporativo */
+
+:root {
+    --agenda-campo: #28a745;     /* verde */
+    --agenda-maleta: #dc3545;    /* vermelho */
+    --agenda-ferias: #ffc107;    /* amarelo */
+    --reserva-carros: #dc3545;   /* vermelho */
+    --agenda-parceiros: #6f42c1; /* roxo */
+    --agenda-extra: #007bff;     /* azul */
+    --taf-fabrica: #6c757d;      /* cinza */
+    --utr: #795548;              /* marrom */
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.navbar-logo {
+    height: 40px;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+/* Estilos para o calendário */
+#calendario {
+    margin: 20px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.fc-day-today {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+}
+
+.fc-event {
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Estilos para os botões de navegação */
+.fc-prev-button .fas,
+.fc-next-button .fas {
+    font-size: 0.9em;
+    line-height: 1;
+}
+
+/* Estilos para o modal de tarefa */
+.modal-header.tarefa-campo {
+    background-color: var(--agenda-campo);
+    color: white;
+}
+
+.modal-header.tarefa-maleta {
+    background-color: var(--agenda-maleta);
+    color: white;
+}
+
+.modal-header.tarefa-ferias {
+    background-color: var(--agenda-ferias);
+    color: black;
+}
+
+.modal-header.tarefa-carros {
+    background-color: var(--reserva-carros);
+    color: white;
+}
+
+.modal-header.tarefa-parceiros {
+    background-color: var(--agenda-parceiros);
+    color: white;
+}
+
+.modal-header.tarefa-extra {
+    background-color: var(--agenda-extra);
+    color: white;
+}
+
+.modal-header.tarefa-taf {
+    background-color: var(--taf-fabrica);
+    color: white;
+}
+
+.modal-header.tarefa-utr {
+    background-color: var(--utr);
+    color: white;
+}
+
+/* Customização do formulário de tarefa */
+.form-tarefa label {
+    font-weight: 500;
+}
+
+.form-tarefa .anexo-item {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-tarefa .anexo-item button {
+    padding: 2px 8px;
+}
+
+.form-switch .form-check-input {
+    width: 3em;
+}
+
+/* Estilos para páginas de autenticação */
+.auth-card {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+/* Indicadores de disponibilidade removidos */
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    .fc-header-toolbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .fc-toolbar-chunk {
+        margin-bottom: 10px;
+    }
+}
+
+/* ============================
+   Modal de Tarefa — Visual Moderno
+   ============================ */
+#modalTarefa .modal-content {
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
+}
+
+#modalTarefa .modal-header {
+    background: #f7f9fc; /* cor suave */
+    border-bottom: 1px solid #e6e9ef; /* separação visual do corpo */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+#modalTarefa .modal-title {
+    font-size: 1.125rem; /* 18px approx */
+    font-weight: 700;
+    color: #0f172a; /* boa legibilidade */
+}
+
+#modalTarefa .btn-close {
+    filter: none;
+    opacity: 0.7;
+}
+#modalTarefa .btn-close:hover { opacity: 1; }
+
+/* Chip do autor da tarefa no canto direito */
+#modalTarefa .task-creator {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-right: 12px;
+}
+
+#modalTarefa .task-creator.is-visible {
+    display: flex;
+}
+
+#modalTarefa .task-creator-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+#modalTarefa .task-creator-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 12px 4px 4px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+#modalTarefa .task-creator-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #fff;
+    background: linear-gradient(135deg, #0d6efd, #2563eb);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    border: 2px solid #fff;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+#modalTarefa .task-creator-placeholder {
+    letter-spacing: 0.3px;
+}
+
+#modalTarefa .task-creator-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #334155;
+    line-height: 1;
+}
+
+#modalTarefa .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#modalTarefa .modal-body {
+    background: #ffffff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 1.25rem 1.25rem 1rem;
+}
+
+#modalTarefa .form-label {
+    font-weight: 600;
+    color: #334155; /* cinza-escuro suave */
+    margin-bottom: 0.35rem;
+}
+
+#modalTarefa .form-text {
+    color: #6b7280; /* cinza legível */
+}
+
+#modalTarefa .form-control,
+#modalTarefa .form-select {
+    border-radius: 8px;
+    border-color: #d1d5db;
+}
+
+#modalTarefa .form-control:focus,
+#modalTarefa .form-select:focus {
+    border-color: #86b7fe; /* tom bootstrap-friendly */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+#modalTarefa .form-check-input {
+    width: 2.75em; /* um pouco menor que o padrão acima */
+    height: 1.5em;
+}
+
+/* Botões mais destacados com efeito sutil */
+#modalTarefa .btn {
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.04s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+#modalTarefa .btn-primary,
+#modalTarefa .btn-success,
+#modalTarefa .btn-secondary,
+#modalTarefa .btn-danger {
+    box-shadow: 0 4px 10px rgba(2, 6, 23, 0.06);
+}
+
+#modalTarefa .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(2, 6, 23, 0.1);
+}
+
+#modalTarefa .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(2, 6, 23, 0.08);
+}
+
+/* Ajuste de espaçamento entre grupos de campos */
+#modalTarefa .row.mb-3 {
+    margin-bottom: 1rem !important; /* mantém bom respiro entre seções */
+}
+
+/* Itens de anexo com visual mais clean */
+#modalTarefa .anexo-item {
+    background: #f8fafc;
+    border: 1px solid #eef2f7;
+    border-radius: 8px;
+}
+
+/* Checklist vertical clássico */
+#modalTarefa .form-check { margin-bottom: .35rem; }
+#modalTarefa .form-check:last-child { margin-bottom: .75rem; }
+/* Espaço entre o checkbox e o texto, sem afetar switches */
+#modalTarefa .form-check:not(.form-switch) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* leve espaçamento entre a caixa e o texto */
+}
+
+/* Destaque leve no título por categoria (mantém o border-left dinâmico setado via JS) */
+#modalTarefa .modal-header {
+    position: relative;
+}
+
+#modalTarefa .modal-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(13,110,253,0.15), rgba(13,110,253,0.0));
+}
+
+/* ============================
+   Modal de Filtro — Visual Consistente
+   ============================ */
+#modalFiltro .modal-content {
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
+}
+
+#modalFiltro .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-bottom: none;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+#modalFiltro .modal-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+#modalFiltro .btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+#modalFiltro .btn-close:hover {
+    opacity: 1;
+}
+
+#modalFiltro .modal-body {
+    background: #ffffff;
+    padding: 1.5rem;
+}
+
+#modalFiltro .form-label {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+#modalFiltro .form-select {
+    border-radius: 8px;
+    border-color: #d1d5db;
+}
+
+#modalFiltro .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+#modalFiltro .btn {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#modalFiltro .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

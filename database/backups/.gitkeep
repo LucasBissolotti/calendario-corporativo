@@ -1,0 +1,3 @@
+# Pasta de backups do banco de dados
+# Este diretório armazena backups automáticos do banco de dados.
+# Os arquivos .db são ignorados pelo Git.

@@ -1,0 +1,169 @@
+/* Estilos para o campo de participantes */
+.select2-container--bootstrap-5 .select2-selection {
+    border-radius: 6px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.select2-container--bootstrap-5.select2-container--focus .select2-selection, 
+.select2-container--bootstrap-5.select2-container--open .select2-selection {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Estilo para as tags de usuários selecionados */
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__choice {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-right: 5px;
+    margin-top: 5px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__choice:hover {
+    background-color: #d1d5db;
+}
+
+/* Estilo para o botão de remover */
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__choice__remove {
+    background-color: transparent;
+    border: 0;
+    border-right: 1px solid #dee2e6;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0 6px;
+    margin-right: 6px;
+    transition: all 0.2s ease;
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__choice__remove:hover {
+    background-color: #c1c7cf;
+    color: #212529;
+}
+
+/* Estilo para os itens no dropdown */
+.select2-container--bootstrap-5 .select2-results__option--highlighted {
+    background-color: #f0f2f5 !important;
+    color: #212529 !important;
+}
+
+.select2-container--bootstrap-5 .select2-results__option--selected,
+.select2-container--bootstrap-5 .select2-results__option--selected.select2-results__option--highlighted {
+    background-color: #e7f3ff !important;
+    color: #0d6efd !important;
+}
+
+.select2-container--bootstrap-5 .select2-dropdown {
+    border-color: #86b7fe;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Garantir que dropdown reposicionado fique acima do modal e não quebre */
+.select2-dropdown-fixed {
+    z-index: 2000 !important; /* acima do modal (1055+) */
+    max-width: 98vw;
+}
+
+/* Em modais, garantir que o container ocupe toda a largura disponível */
+.modal .select2-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Estilos específicos para o modal de filtro */
+#modalFiltro .modal-dialog {
+    max-height: 90vh;
+    overflow: visible;
+}
+
+#modalFiltro .modal-content {
+    max-height: 85vh;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+#modalFiltro .modal-body {
+    overflow: visible;
+    position: relative;
+    flex: 1;
+}
+
+/* Container do Select2 no modal de filtro */
+#modalFiltro .select2-container {
+    position: relative;
+}
+
+/* Dropdown do Select2 dentro do modal de filtro */
+#modalFiltro .select2-dropdown,
+.select2-dropdown-filtro-participantes {
+    z-index: 1060 !important;
+    min-height: 200px;
+    max-height: 350px !important;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: absolute !important;
+    width: 20% !important;
+}
+
+#modalFiltro .select2-results,
+.select2-dropdown-filtro-participantes .select2-results {
+    max-height: 320px !important;
+    min-height: 180px;
+    overflow-y: auto;
+}
+
+#modalFiltro .select2-results__options,
+.select2-dropdown-filtro-participantes .select2-results__options {
+    max-height: none !important;
+}
+
+/* Estilo para os templates de usuários */
+.select2-usuario-template .usuario-nome {
+    font-weight: 500;
+    color: #212529;
+}
+
+.avatar-circle {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 576px) {
+    #modalFiltro .modal-dialog {
+        max-height: 95vh;
+        margin: 0.5rem;
+    }
+    
+    #modalFiltro .modal-content {
+        max-height: 90vh;
+    }
+    
+    #modalFiltro .select2-dropdown {
+        max-height: 250px !important;
+        min-height: 150px;
+    }
+    
+    #modalFiltro .select2-results {
+        max-height: 220px !important;
+        min-height: 130px;
+    }
+    
+    .select2-container--bootstrap-5 {
+        width: 100% !important;
+    }
+    
+    .select2-usuario-template {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .avatar-circle {
+        margin-bottom: 5px;
+    }
+}

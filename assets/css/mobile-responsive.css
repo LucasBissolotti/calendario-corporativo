@@ -1,0 +1,627 @@
+/* ============================
+   Responsividade Mobile - Calendário Corporativo
+   ============================ */
+
+/* Prevenir zoom indesejado em inputs em iOS */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+        font-size: 16px !important; /* Previne zoom automático no iOS */
+    }
+}
+
+/* Mantém o desktop inalterado - aplica apenas em mobile */
+@media (max-width: 768px) {
+    
+    /* ============================
+       Layout Geral Mobile
+       ============================ */
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* ============================
+       Navbar Mobile
+       ============================ */
+    .navbar-logo {
+        height: 32px;
+        max-width: 140px;
+    }
+    
+    .navbar-brand {
+        margin-right: 0.5rem;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    
+    .navbar-avatar,
+    .navbar-avatar-placeholder {
+        width: 28px;
+        height: 28px;
+        margin-right: 0.5rem;
+    }
+    
+    .badge.admin-badge {
+        font-size: 0.65rem;
+        padding: 0.2em 0.4em;
+    }
+    
+    /* ============================
+       Header do Calendário Mobile
+       ============================ */
+    .row.mb-3 .col-md-12 h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .row.mb-3 .col-md-12 .d-flex {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 0.75rem;
+    }
+    
+    .row.mb-3 .col-md-12 .d-flex > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .row.mb-3 .col-md-12 .d-flex .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+    
+    /* ============================
+       Calendário FullCalendar Mobile
+       ============================ */
+    
+    /* Container do calendário com scroll horizontal quando necessário */
+    .card-body {
+        padding: 0.5rem;
+        overflow-x: auto;
+    }
+    
+    #calendario {
+        margin: 0;
+        min-width: 100%;
+    }
+    
+    /* Toolbar do calendário - empilhado verticalmente */
+    .fc .fc-toolbar {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.5rem 0.25rem;
+        align-items: stretch;
+    }
+    
+    .fc .fc-toolbar-chunk {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Botões de navegação (prev/next/today) */
+    .fc .fc-toolbar-chunk:first-child {
+        order: 2;
+        gap: 0.5rem;
+    }
+    
+    .fc .fc-toolbar-chunk:first-child .fc-button-group {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .fc .fc-toolbar-chunk:first-child .fc-button {
+        flex: 1;
+        min-width: 60px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Título centralizado no topo */
+    .fc .fc-toolbar-chunk:nth-child(2) {
+        order: 1;
+        margin-bottom: 0.25rem;
+    }
+    
+    .fc .fc-toolbar-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    /* Botões de visualização (Mês/Semana/Dia/Lista) */
+    .fc .fc-toolbar-chunk:last-child {
+        order: 3;
+    }
+    
+    .fc .fc-toolbar-chunk:last-child .fc-button-group {
+        display: flex;
+        width: 100%;
+        gap: 0;
+    }
+    
+    .fc .fc-toolbar-chunk:last-child .fc-button {
+        flex: 1;
+        padding: 0.6rem 0.25rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Ajustar tamanho dos botões ativos */
+    .fc .fc-button-active {
+        font-weight: 600;
+    }
+    
+    /* ============================
+       Vista de Mês Mobile
+       ============================ */
+    
+    /* Cabeçalho dos dias da semana */
+    .fc .fc-col-header-cell {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+    
+    /* Células dos dias */
+    .fc .fc-daygrid-day {
+        min-height: 60px;
+    }
+    
+    .fc .fc-daygrid-day-number {
+        padding: 0.25rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Eventos no calendário */
+    .fc .fc-daygrid-event {
+        font-size: 0.7rem;
+        padding: 2px 4px;
+        margin-bottom: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .fc .fc-event-title {
+        font-weight: 500;
+    }
+    
+    /* Botão "+X mais" para eventos extras */
+    .fc .fc-daygrid-more-link {
+        font-size: 0.7rem;
+        padding: 2px 4px;
+        margin-top: 2px;
+    }
+    
+    /* ============================
+       Vista de Semana Mobile
+       ============================ */
+    
+    .fc .fc-timegrid-slot {
+        height: 2.5rem;
+    }
+    
+    .fc .fc-timegrid-slot-label {
+        font-size: 0.7rem;
+        padding: 0 0.25rem;
+    }
+    
+    .fc .fc-timegrid-event {
+        font-size: 0.75rem;
+        padding: 2px 4px;
+    }
+    
+    .fc .fc-timegrid-event .fc-event-title {
+        font-weight: 500;
+    }
+    
+    /* Colunas dos dias na semana */
+    .fc .fc-timegrid-col-frame {
+        min-width: 60px;
+    }
+    
+    /* ============================
+       Vista de Dia Mobile
+       ============================ */
+    
+    .fc .fc-timegrid.fc-timeGridDay-view .fc-timegrid-slot {
+        height: 3rem;
+    }
+    
+    .fc .fc-timegrid.fc-timeGridDay-view .fc-timegrid-event {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+    
+    /* ============================
+       Vista de Lista Mobile
+       ============================ */
+    
+    .fc .fc-list-event {
+        font-size: 0.875rem;
+    }
+    
+    .fc .fc-list-event-time {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+    
+    .fc .fc-list-event-title {
+        padding: 0.5rem;
+    }
+    
+    .fc .fc-list-day-cushion {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+    
+    /* ============================
+       Modais Mobile
+       ============================ */
+    
+    /* Modal de Tarefa */
+    #modalTarefa .modal-dialog,
+    #modalFiltro .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    #modalTarefa .modal-content,
+    #modalFiltro .modal-content {
+        border-radius: 8px;
+    }
+    
+    #modalTarefa .modal-header,
+    #modalFiltro .modal-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    #modalTarefa .modal-title,
+    #modalFiltro .modal-title {
+        font-size: 1rem;
+    }
+    
+    #modalTarefa .modal-body,
+    #modalFiltro .modal-body {
+        padding: 1rem;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+    }
+    
+    /* Formulários dentro do modal */
+    #modalTarefa .form-label,
+    #modalFiltro .form-label {
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    #modalTarefa .form-control,
+    #modalTarefa .form-select,
+    #modalFiltro .form-control,
+    #modalFiltro .form-select {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    #modalTarefa .form-text {
+        font-size: 0.75rem;
+    }
+    
+    /* Ajustar colunas do formulário para empilhar */
+    #modalTarefa .row.mb-3 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    #modalTarefa .row > [class*="col-"] {
+        margin-bottom: 0.75rem;
+    }
+    
+    #modalTarefa .row > [class*="col-"]:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Botões do modal empilhados */
+    #modalTarefa .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    #modalTarefa .d-flex.justify-content-between > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    #modalTarefa .d-flex.justify-content-between .btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+    
+    #modalFiltro .d-flex.justify-content-end {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    #modalFiltro .d-flex.justify-content-end .btn {
+        width: 100%;
+        margin: 0 !important;
+    }
+    
+    /* ============================
+       Select2 Mobile
+       ============================ */
+    
+    .select2-container--bootstrap-5 .select2-selection {
+        min-height: 38px;
+        font-size: 0.875rem;
+    }
+    
+    .select2-dropdown {
+        font-size: 0.875rem;
+    }
+    
+    .select2-results__option {
+        padding: 0.5rem;
+    }
+    
+    /* Avatar no Select2 */
+    .select2-avatar,
+    .select2-avatar-placeholder {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+    
+    .select2-avatar-mini {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .usuario-nome {
+        font-size: 0.875rem;
+    }
+    
+    .usuario-email {
+        font-size: 0.7rem;
+    }
+    
+    /* ============================
+       Checklist Mobile
+       ============================ */
+    
+    #modalTarefa .form-check {
+        padding-left: 1.75rem;
+    }
+    
+    #modalTarefa .form-check-label {
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+    
+    #modalTarefa .form-check-input {
+        width: 1.25em;
+        height: 1.25em;
+        margin-top: 0.1em;
+    }
+    
+    /* ============================
+       Anexos Mobile
+       ============================ */
+    
+    .anexo-item {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .anexo-item button {
+        width: 100%;
+    }
+    
+    /* ============================
+       Popover de Eventos Mobile
+       ============================ */
+    
+    .fc-popover {
+        max-width: 90vw !important;
+        font-size: 0.875rem;
+    }
+    
+    .fc-popover-header {
+        padding: 0.5rem;
+    }
+    
+    .fc-popover-body {
+        padding: 0.5rem;
+    }
+    
+    /* ============================
+       Alertas Customizados Mobile
+       ============================ */
+    
+    #customAlertModal .modal-dialog {
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    #customAlertModal .modal-content {
+        border-radius: 8px;
+    }
+    
+    #customAlertModal .modal-body {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    #customAlertModal .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    /* ============================
+       Melhorias de Toque Mobile
+       ============================ */
+    
+    /* Aumentar área de toque dos botões */
+    .fc .fc-button {
+        min-height: 38px;
+        touch-action: manipulation;
+    }
+    
+    /* Remover hover em touch devices */
+    @media (hover: none) {
+        .fc .fc-button:hover {
+            background-color: inherit;
+        }
+    }
+    
+    /* Melhorar scrolling em modais */
+    .modal-body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* ============================
+       Landscape Mobile (Modo Paisagem)
+       ============================ */
+    
+    @media (max-height: 500px) and (orientation: landscape) {
+        
+        .fc .fc-toolbar {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        .fc .fc-toolbar-chunk {
+            width: auto;
+        }
+        
+        .fc .fc-toolbar-chunk:first-child {
+            order: 1;
+            flex: 0 0 auto;
+        }
+        
+        .fc .fc-toolbar-chunk:nth-child(2) {
+            order: 2;
+            flex: 1 1 auto;
+        }
+        
+        .fc .fc-toolbar-chunk:last-child {
+            order: 3;
+            flex: 0 0 100%;
+            margin-top: 0.5rem;
+        }
+        
+        #modalTarefa .modal-dialog,
+        #modalFiltro .modal-dialog {
+            max-height: 90vh;
+        }
+        
+        #modalTarefa .modal-body,
+        #modalFiltro .modal-body {
+            max-height: calc(90vh - 100px);
+        }
+    }
+    
+    /* ============================
+       Tablets (768px - 991px)
+       ============================ */
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    
+    /* Ajustes específicos para tablets */
+    .fc .fc-toolbar-chunk:last-child .fc-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    #modalTarefa .modal-dialog {
+        max-width: 90%;
+    }
+    
+    .fc .fc-daygrid-event {
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================
+   Orientação Retrato
+   ============================ */
+
+@media (max-width: 768px) and (orientation: portrait) {
+    
+    /* Otimizações específicas para modo retrato */
+    .fc .fc-toolbar-title {
+        font-size: 1.1rem;
+    }
+    
+    .fc .fc-daygrid-day {
+        min-height: 55px;
+    }
+    
+    /* Certificar que todas as 4 views estão visíveis */
+    .fc .fc-toolbar-chunk:last-child .fc-button {
+        min-width: 0;
+        flex: 1 1 25%;
+        font-size: 0.7rem;
+        padding: 0.6rem 0.15rem;
+    }
+}
+
+/* ============================
+   Acessibilidade Mobile
+   ============================ */
+
+@media (max-width: 768px) {
+    
+    /* Melhorar contraste e legibilidade */
+    .fc .fc-button {
+        font-weight: 500;
+    }
+    
+    .fc .fc-event {
+        border-width: 1px;
+    }
+    
+    /* Garantir que elementos focáveis sejam visíveis */
+    .fc .fc-button:focus,
+    .form-control:focus,
+    .form-select:focus {
+        outline: 2px solid #0d6efd;
+        outline-offset: 2px;
+    }
+    
+    /* Scroll suave */
+    html {
+        scroll-behavior: smooth;
+    }
+}

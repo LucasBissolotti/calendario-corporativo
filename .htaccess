@@ -1,0 +1,50 @@
+# Endurecimento global de segurança
+
+# Desabilita listagem de diretórios
+Options -Indexes
+
+# Bloqueia arquivos ocultos (dotfiles)
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Bloqueia extensões de arquivos sensíveis
+# .md/.markdown, .ini, logs, SQL/DB, .env, YAML, arquivos de lock, pacotes/arquivos compactados, scripts, chaves/certificados, backups
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} \.((?i)md|markdown|ini|log|sql|sqlite|db|env|ya?ml|lock|phar|sh|bat|ps1|cfg|conf|pem|crt|key|pfx|p12|bak|tmp|old|orig|dist|example|swp|swn|swx|zip|tar|gz|tgz|7z|rar)$ [OR]
+  RewriteCond %{REQUEST_URI} ^/(README|LICENSE)(\.|$) [OR]
+  RewriteCond %{REQUEST_URI} ^/composer\.(json|lock)$ [OR]
+  RewriteCond %{REQUEST_URI} ^/package(-lock)?\.json$
+  RewriteRule .* - [F]
+</IfModule>
+
+# Fallback sem mod_rewrite: bloqueia arquivos sensíveis por padrão (FilesMatch)
+<FilesMatch "(?i)\.(md|markdown|ini|log|sql|sqlite|db|env|ya?ml|lock|phar|sh|bat|ps1|cfg|conf|pem|crt|key|pfx|p12|bak|tmp|old|orig|dist|example|swp|swn|swx|zip|tar|gz|tgz|7z|rar)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^(README|LICENSE)(\.|$)">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^(composer\.json|composer\.lock|package\.json|package-lock\.json)$">
+  Require all denied
+</FilesMatch>
+
+# Controle centralizado de acesso a pastas
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Nega acesso direto a pastas internas
+  RewriteRule ^(includes|vendor|database|docs)/ - [F]
+
+  # Uploads: permite apenas imagens de avatares; bloqueia o restante
+  # 1) Lista de permissões: extensões de imagem seguras em uploads/avatares
+  RewriteRule ^uploads/avatares/.*\.(jpe?g|png|gif|webp)$ - [L]
+  # 2) Nega qualquer outra requisição em uploads/avatares (ex.: svg/php)
+  RewriteRule ^uploads/avatares/ - [F]
+  # 3) Nega qualquer outro caminho dentro de uploads/
+  RewriteRule ^uploads/ - [F]
+
+  # Bloqueia scripts de servidor dentro de assets
+  RewriteRule ^assets/.*\.(php|phtml|php3|php4|php5|phps|cgi|pl|asp|aspx)$ - [F]
+</IfModule>

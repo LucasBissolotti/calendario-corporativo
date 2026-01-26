@@ -1,0 +1,45 @@
+# ===========================================
+# Arquivos e pastas a ignorar no Git
+# ===========================================
+
+# --- Arquivos de Ambiente e Segredos ---
+.env
+*.env.local
+*.env.*.local
+
+# --- Banco de Dados ---
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+database/backups/*
+!database/backups/.gitkeep
+
+# --- Uploads de Usuários ---
+uploads/*
+!uploads/.gitkeep
+!uploads/avatares/
+uploads/avatares/*
+!uploads/avatares/.gitkeep
+
+# --- Dependências ---
+vendor/
+node_modules/
+
+# --- Cache e Logs ---
+*.log
+*.cache
+.phpunit.result.cache
+
+# --- IDEs e Editores ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --- Sistema ---
+*.bak
+*.tmp
+*.temp

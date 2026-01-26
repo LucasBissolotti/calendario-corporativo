@@ -11,7 +11,47 @@ Um sistema completo de calendário corporativo que permite o gerenciamento de us
 
 ## 🖼️ Screenshots
 
-> *Adicione screenshots do sistema aqui*
+### 📅 Calendário
+
+| Tela Inicial | Com Tarefa | Múltiplas Tarefas |
+|:---:|:---:|:---:|
+| ![Calendário - Tela Inicial](assets/img/screenshots/calendario1.png) | ![Calendário - Com Tarefa](assets/img/screenshots/calendario2.png) | ![Calendário - Múltiplas Tarefas](assets/img/screenshots/calendario3.png) |
+| *Visão geral do calendário* | *Tarefa exibida no calendário* | *Múltiplas tarefas organizadas* |
+
+### ✏️ Criação de Tarefa
+
+| Modal de Criação (Topo) | Modal de Criação (Rodapé) |
+|:---:|:---:|
+| ![Criar Tarefa - Topo](assets/img/screenshots/tarefa1.png) | ![Criar Tarefa - Rodapé](assets/img/screenshots/tarefa2.png) |
+| *Campos principais da tarefa* | *Checklist e opções avançadas* |
+
+### 👤 Perfil do Usuário
+
+![Meu Perfil](assets/img/screenshots/perfil.png)
+*Página de perfil com opção de alterar avatar e senha*
+
+### 🔧 Painel Administrativo
+
+#### Visão do Usuário Comum
+![Painel Admin - Usuário Comum](assets/img/screenshots/admin-usuario-comum.png)
+*Visão limitada para usuários não-administradores*
+
+#### Visão do Administrador
+
+| Gestão de Usuários | Gestão de Tarefas |
+|:---:|:---:|
+| ![Admin - Usuários](assets/img/screenshots/admin-usuarios.png) | ![Admin - Tarefas](assets/img/screenshots/admin-tarefas.png) |
+| *Criar, editar e gerenciar usuários* | *Visualizar e gerenciar todas as tarefas* |
+
+| Logs de Atividade | Categorias |
+|:---:|:---:|
+| ![Admin - Logs](assets/img/screenshots/admin-logs.png) | ![Admin - Categorias](assets/img/screenshots/admin-categorias.png) |
+| *Histórico de ações no sistema* | *Gerenciar categorias de tarefas* |
+
+| Checklists | Envio Semanal |
+|:---:|:---:|
+| ![Admin - Checklists](assets/img/screenshots/admin-checklists.png) | ![Admin - Envio Semanal](assets/img/screenshots/admin-envio-semanal.png) |
+| *Configurar itens de checklist* | *Configurar destinatários do e-mail semanal* |
 
 ---
 

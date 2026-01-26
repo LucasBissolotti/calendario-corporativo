@@ -9,7 +9,7 @@ Um sistema completo de calendário corporativo que permite o gerenciamento de us
 
 ---
 
-## �️ **Instalação**
+##  **Instalação**
 
 ### Pré-requisitos
 - PHP 7.4 ou superior
@@ -21,7 +21,7 @@ Um sistema completo de calendário corporativo que permite o gerenciamento de us
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/calendario-corporativo.git
+   git clone https://github.com/LucasBissolotti/calendario-corporativo.git
    cd calendario-corporativo
    ```
 
@@ -35,19 +35,17 @@ Um sistema completo de calendário corporativo que permite o gerenciamento de us
    cp .env.example .env
    ```
    Edite o arquivo `.env` com suas credenciais:
-   - Credenciais do banco de dados
    - Configurações de SMTP para e-mails
-   - Domínio permitido para registro de usuários
 
 4. **Acesse o sistema:**
    - O banco de dados será criado automaticamente na primeira execução
    - Acesse: `http://localhost/calendario-corporativo`
-   - Login padrão: `admin@exemplo.com` / `admin123`
+   - Login padrão: `admin@admin.com` / `admin123`
    - **⚠️ Altere a senha do admin imediatamente após o primeiro acesso!**
 
 ---
 
-## �🚀 **Recursos Principais**
+## 🚀 **Recursos Principais**
 
 ### 👤 **Gestão de Usuários**
 - Criação e administração de usuários.
@@ -103,7 +101,6 @@ Um sistema completo de calendário corporativo que permite o gerenciamento de us
 
 - Todas as credenciais sensíveis são armazenadas em variáveis de ambiente (`.env`)
 - Proteção CSRF em todos os formulários
-- Validação de domínio de e-mail configurável
 - Hashing seguro de senhas com `password_hash()`
 - Cabeçalhos de segurança HTTP configurados
 

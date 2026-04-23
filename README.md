@@ -63,7 +63,7 @@ Um sistema completo de calendário corporativo que permite o gerenciamento de us
 - Servidor web (Apache/Nginx) - Recomendado: **XAMPP** ou **WAMP**
 - SQLite3 (já incluso no PHP)
 
-### Instalação com XAMPP (Recomendado para Windows)
+### Instalação com XAMPP
 
 1. **Baixe e instale o XAMPP:**
    - Acesse: https://www.apachefriends.org/
@@ -106,7 +106,7 @@ cp .env.example .env
 
 ---
 
-## 🚀 **Primeiros Passos (Após Instalação)**
+##  **Primeiros Passos (Após Instalação)**
 
 1. **Faça login** com `admin@admin.com` / `admin123`
 2. **Acesse "Administração"** no menu
@@ -117,7 +117,7 @@ cp .env.example .env
 
 ---
 
-## 📋 **Recursos Principais**
+##  **Recursos Principais**
 
 ### 👤 **Gestão de Usuários**
 - Criação e administração de usuários

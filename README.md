@@ -9,7 +9,7 @@ Um sistema completo de calendário corporativo que permite o gerenciamento de us
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
 ### 📅 Calendário
 
